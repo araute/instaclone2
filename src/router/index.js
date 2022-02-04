@@ -1,18 +1,18 @@
 import React from 'react';
-import { createStackNavigator } from "@react-navigation/stack";
+import {createStackNavigator} from '@react-navigation/stack';
 
 import bottomHomeNavigator from './bottomHomeNavigator.routes';
-import StoryScreen from "../screens/StoryScreen";
+import StoryScreen from '../screens/StoryScreen';
 
 const RootStack = createStackNavigator();
 
 const Router = () => (
   <RootStack.Navigator>
     <RootStack.Screen
-      name={"Home"}
+      name={'Home'}
       component={bottomHomeNavigator}
       options={{
-        headerShown: false
+        headerShown: false,
       }}
     />
     <RootStack.Screen

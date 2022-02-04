@@ -1,20 +1,45 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-instagramclone-dev-201713-authRole",
-            "UnauthRoleArn": "arn:aws:iam::704219588443:role/amplify-instagramclone-dev-201713-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::704219588443:role/amplify-instagramclone-dev-201713-authRole",
-            "Region": "eu-west-1",
-            "DeploymentBucketName": "amplify-instagramclone-dev-201713-deployment",
-            "UnauthRoleName": "amplify-instagramclone-dev-201713-unauthRole",
-            "StackName": "amplify-instagramclone-dev-201713",
-            "StackId": "arn:aws:cloudformation:eu-west-1:704219588443:stack/amplify-instagramclone-dev-201713/53e17610-e49b-11ea-8ff9-06b222f0b0a4",
-            "AmplifyAppId": "d3i3v2knggl964"
-        },
-        "categories": {
-            "auth": {
-                "instagramclonee9ad3f24": {}
-            }
-        }
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-instagramclone-dev-201713-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704219588443:role/amplify-instagramclone-dev-201713-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704219588443:role/amplify-instagramclone-dev-201713-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-instagramclone-dev-201713-deployment",
+      "UnauthRoleName": "amplify-instagramclone-dev-201713-unauthRole",
+      "StackName": "amplify-instagramclone-dev-201713",
+      "StackId": "arn:aws:cloudformation:eu-west-1:704219588443:stack/amplify-instagramclone-dev-201713/53e17610-e49b-11ea-8ff9-06b222f0b0a4",
+      "AmplifyAppId": "d3i3v2knggl964"
+    },
+    "categories": {
+      "auth": {
+        "instagramclonee9ad3f24": {}
+      }
     }
+  },
+  "pandora": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-instagramclone-pandora-81518-authRole",
+      "UnauthRoleArn": "arn:aws:iam::470981330186:role/amplify-instagramclone-pandora-81518-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::470981330186:role/amplify-instagramclone-pandora-81518-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-instagramclone-pandora-81518-deployment",
+      "UnauthRoleName": "amplify-instagramclone-pandora-81518-unauthRole",
+      "StackName": "amplify-instagramclone-pandora-81518",
+      "StackId": "arn:aws:cloudformation:us-west-2:470981330186:stack/amplify-instagramclone-pandora-81518/fd9ad340-82b0-11ec-9df1-0ab7be6c4b2f",
+      "AmplifyAppId": "d3bs3spczzkup7"
+    },
+    "categories": {
+      "auth": {
+        "instagramclonee9ad3f24": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "onUserSignUp": {
+          "deploymentBucketName": "amplify-instagramclone-pandora-81518-deployment",
+          "s3Key": "amplify-builds/onUserSignUp-335030616944354e6465-build.zip"
+        }
+      }
+    }
+  }
 }

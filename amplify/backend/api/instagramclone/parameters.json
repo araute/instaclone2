@@ -1,5 +1,6 @@
 {
-    "AppSyncApiName": "instagramclone",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false
+  "AppSyncApiName": "instagramclone",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2022-01-31T16:30:22.918Z"
 }

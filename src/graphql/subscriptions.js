@@ -6,21 +6,13 @@ export const onCreateUser = /* GraphQL */ `
     onCreateUser {
       id
       name
-      image
-      posts {
-        items {
-          id
-          caption
-          image
-          userID
-          likes
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      email
+      addresses
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -29,21 +21,13 @@ export const onUpdateUser = /* GraphQL */ `
     onUpdateUser {
       id
       name
-      image
-      posts {
-        items {
-          id
-          caption
-          image
-          userID
-          likes
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      email
+      addresses
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -52,151 +36,965 @@ export const onDeleteUser = /* GraphQL */ `
     onDeleteUser {
       id
       name
-      image
-      posts {
+      email
+      addresses
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateFoodCategory = /* GraphQL */ `
+  subscription OnCreateFoodCategory {
+    onCreateFoodCategory {
+      id
+      type
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      products {
         items {
           id
-          caption
-          image
-          userID
-          likes
+          name
+          categoryID
+          description
+          primaryImage
+          images
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
+    }
+  }
+`;
+export const onUpdateFoodCategory = /* GraphQL */ `
+  subscription OnUpdateFoodCategory {
+    onUpdateFoodCategory {
+      id
+      type
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      products {
+        items {
+          id
+          name
+          categoryID
+          description
+          primaryImage
+          images
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onDeleteFoodCategory = /* GraphQL */ `
+  subscription OnDeleteFoodCategory {
+    onDeleteFoodCategory {
+      id
+      type
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      products {
+        items {
+          id
+          name
+          categoryID
+          description
+          primaryImage
+          images
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onCreateProduct = /* GraphQL */ `
+  subscription OnCreateProduct {
+    onCreateProduct {
+      id
+      name
+      categoryID
+      description
+      primaryImage
+      images
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      category {
+        id
+        type
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        products {
+          nextToken
+          startedAt
+        }
+      }
+      atLocations {
+        items {
+          id
+          locationID
+          productID
+          price
+          Stock
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      atCarts {
+        items {
+          id
+          userSub
+          quantity
+          productID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onUpdateProduct = /* GraphQL */ `
+  subscription OnUpdateProduct {
+    onUpdateProduct {
+      id
+      name
+      categoryID
+      description
+      primaryImage
+      images
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      category {
+        id
+        type
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        products {
+          nextToken
+          startedAt
+        }
+      }
+      atLocations {
+        items {
+          id
+          locationID
+          productID
+          price
+          Stock
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      atCarts {
+        items {
+          id
+          userSub
+          quantity
+          productID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onDeleteProduct = /* GraphQL */ `
+  subscription OnDeleteProduct {
+    onDeleteProduct {
+      id
+      name
+      categoryID
+      description
+      primaryImage
+      images
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      category {
+        id
+        type
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        products {
+          nextToken
+          startedAt
+        }
+      }
+      atLocations {
+        items {
+          id
+          locationID
+          productID
+          price
+          Stock
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      atCarts {
+        items {
+          id
+          userSub
+          quantity
+          productID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onCreateLocation = /* GraphQL */ `
+  subscription OnCreateLocation {
+    onCreateLocation {
+      id
+      name
+      street
+      unit
+      city
+      state
+      zip
+      phone
+      latitude
+      longitude
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      menuLocations {
+        items {
+          id
+          locationID
+          productID
+          price
+          Stock
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onUpdateLocation = /* GraphQL */ `
+  subscription OnUpdateLocation {
+    onUpdateLocation {
+      id
+      name
+      street
+      unit
+      city
+      state
+      zip
+      phone
+      latitude
+      longitude
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      menuLocations {
+        items {
+          id
+          locationID
+          productID
+          price
+          Stock
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onDeleteLocation = /* GraphQL */ `
+  subscription OnDeleteLocation {
+    onDeleteLocation {
+      id
+      name
+      street
+      unit
+      city
+      state
+      zip
+      phone
+      latitude
+      longitude
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      menuLocations {
+        items {
+          id
+          locationID
+          productID
+          price
+          Stock
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onCreateLocationMenu = /* GraphQL */ `
+  subscription OnCreateLocationMenu {
+    onCreateLocationMenu {
+      id
+      locationID
+      productID
+      price
+      Stock
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+      location {
+        id
+        name
+        street
+        unit
+        city
+        state
+        zip
+        phone
+        latitude
+        longitude
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        menuLocations {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onUpdateLocationMenu = /* GraphQL */ `
+  subscription OnUpdateLocationMenu {
+    onUpdateLocationMenu {
+      id
+      locationID
+      productID
+      price
+      Stock
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+      location {
+        id
+        name
+        street
+        unit
+        city
+        state
+        zip
+        phone
+        latitude
+        longitude
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        menuLocations {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onDeleteLocationMenu = /* GraphQL */ `
+  subscription OnDeleteLocationMenu {
+    onDeleteLocationMenu {
+      id
+      locationID
+      productID
+      price
+      Stock
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+      location {
+        id
+        name
+        street
+        unit
+        city
+        state
+        zip
+        phone
+        latitude
+        longitude
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        menuLocations {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onCreateCartProduct = /* GraphQL */ `
+  subscription OnCreateCartProduct {
+    onCreateCartProduct {
+      id
+      userSub
+      quantity
+      productID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onUpdateCartProduct = /* GraphQL */ `
+  subscription OnUpdateCartProduct {
+    onUpdateCartProduct {
+      id
+      userSub
+      quantity
+      productID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onDeleteCartProduct = /* GraphQL */ `
+  subscription OnDeleteCartProduct {
+    onDeleteCartProduct {
+      id
+      userSub
+      quantity
+      productID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onCreateOrderProduct = /* GraphQL */ `
+  subscription OnCreateOrderProduct {
+    onCreateOrderProduct {
+      id
+      quantity
+      option
+      productID
+      orderID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const onUpdateOrderProduct = /* GraphQL */ `
+  subscription OnUpdateOrderProduct {
+    onUpdateOrderProduct {
+      id
+      quantity
+      option
+      productID
+      orderID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const onDeleteOrderProduct = /* GraphQL */ `
+  subscription OnDeleteOrderProduct {
+    onDeleteOrderProduct {
+      id
+      quantity
+      option
+      productID
+      orderID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      product {
+        id
+        name
+        categoryID
+        description
+        primaryImage
+        images
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        category {
+          id
+          type
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        atLocations {
+          nextToken
+          startedAt
+        }
+        atCarts {
+          nextToken
+          startedAt
+        }
+      }
+      order {
+        id
+        userSub
+        fullName
+        phoneNumber
+        country
+        city
+        address
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const onCreateOrder = /* GraphQL */ `
+  subscription OnCreateOrder {
+    onCreateOrder {
+      id
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
+export const onUpdateOrder = /* GraphQL */ `
+  subscription OnUpdateOrder {
+    onUpdateOrder {
       id
-      caption
-      image
-      userID
-      likes
-      user {
-        id
-        name
-        image
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+export const onDeleteOrder = /* GraphQL */ `
+  subscription OnDeleteOrder {
+    onDeleteOrder {
       id
-      caption
-      image
-      userID
-      likes
-      user {
-        id
-        name
-        image
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
-      id
-      caption
-      image
-      userID
-      likes
-      user {
-        id
-        name
-        image
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateStory = /* GraphQL */ `
-  subscription OnCreateStory {
-    onCreateStory {
-      id
-      image
-      userID
-      user {
-        id
-        name
-        image
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateStory = /* GraphQL */ `
-  subscription OnUpdateStory {
-    onUpdateStory {
-      id
-      image
-      userID
-      user {
-        id
-        name
-        image
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteStory = /* GraphQL */ `
-  subscription OnDeleteStory {
-    onDeleteStory {
-      id
-      image
-      userID
-      user {
-        id
-        name
-        image
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      userSub
+      fullName
+      phoneNumber
+      country
+      city
+      address
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }

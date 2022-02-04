@@ -1,14 +1,16 @@
 {
+  "version": "1",
+  "cognitoConfig": {
     "identityPoolName": "instagramclonee9ad3f24_identitypool_e9ad3f24",
     "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "instage9ad3f24",
     "userPoolName": "instagramclonee9ad3f24_userpool_e9ad3f24",
     "autoVerifiedAttributes": [
-        "email"
+      "email"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
-        "SMS Text Message"
+      "SMS Text Message"
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
@@ -18,34 +20,41 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+      "email"
     ],
+    "aliasAttributes": [],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "email"
+      "email"
     ],
     "userpoolClientReadAttributes": [
-        "email"
+      "email"
     ],
     "userpoolClientLambdaRole": "instage9ad3f24_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "e9ad3f24",
-    "resourceName": "instagramclonee9ad3f24",
     "authSelections": "identityPoolAndUserPool",
+    "resourceName": "instagramclonee9ad3f24",
+    "useDefault": "default",
+    "sharedId": "e9ad3f24",
+    "userPoolGroupList": [
+      "pandorausergroup"
+    ],
     "authRoleArn": {
-        "Fn::GetAtt": [
-            "AuthRole",
-            "Arn"
-        ]
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
     },
     "unauthRoleArn": {
-        "Fn::GetAtt": [
-            "UnauthRole",
-            "Arn"
-        ]
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
     },
-    "useDefault": "default",
-    "userPoolGroupList": [],
-    "dependsOn": []
+    "breakCircularDependency": false,
+    "useEnabledMfas": false,
+    "dependsOn": [],
+    "serviceName": "Cognito"
+  }
 }

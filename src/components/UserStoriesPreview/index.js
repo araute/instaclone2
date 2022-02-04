@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { FlatList } from 'react-native';
-import { API, graphqlOperation } from 'aws-amplify';
-import { listStorys } from '../../graphql/queries';
+import {FlatList} from 'react-native';
+import {API, graphqlOperation} from 'aws-amplify';
+import {listStorys} from '../../graphql/queries';
 import Story from '../UserStoryPreview';
 
-import styles from "./styles";
+import styles from './styles';
 
 const Stories = () => {
-
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const Stories = () => {
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   return (
     <FlatList
@@ -30,9 +29,9 @@ const Stories = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
       style={styles.container}
-      renderItem={({item}) => <Story story={item}/>}
+      renderItem={({item}) => <Story story={item} />}
     />
-  )
-}
+  );
+};
 
 export default Stories;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import ProfilePicture from '../../../ProfilePicture';
 import styles from './styles';
@@ -15,6 +15,6 @@ const Header = ({imageUri, name}) => (
       <Icon name="dots-three-vertical" size={16} />
     </View>
   </View>
-)
+);
 
 export default Header;
