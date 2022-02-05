@@ -205,6 +205,7 @@ export const createProduct = /* GraphQL */ `
           id
           userSub
           quantity
+          price
           productID
           _version
           _deleted
@@ -269,6 +270,7 @@ export const updateProduct = /* GraphQL */ `
           id
           userSub
           quantity
+          price
           productID
           _version
           _deleted
@@ -333,6 +335,7 @@ export const deleteProduct = /* GraphQL */ `
           id
           userSub
           quantity
+          price
           productID
           _version
           _deleted
@@ -685,6 +688,7 @@ export const createCartProduct = /* GraphQL */ `
       id
       userSub
       quantity
+      price
       productID
       _version
       _deleted
@@ -733,6 +737,7 @@ export const updateCartProduct = /* GraphQL */ `
       id
       userSub
       quantity
+      price
       productID
       _version
       _deleted
@@ -781,6 +786,7 @@ export const deleteCartProduct = /* GraphQL */ `
       id
       userSub
       quantity
+      price
       productID
       _version
       _deleted

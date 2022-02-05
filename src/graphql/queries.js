@@ -202,6 +202,7 @@ export const getProduct = /* GraphQL */ `
           id
           userSub
           quantity
+          price
           productID
           _version
           _deleted
@@ -601,6 +602,7 @@ export const getCartProduct = /* GraphQL */ `
       id
       userSub
       quantity
+      price
       productID
       _version
       _deleted
@@ -651,6 +653,7 @@ export const listCartProducts = /* GraphQL */ `
         id
         userSub
         quantity
+        price
         productID
         _version
         _deleted
@@ -693,6 +696,7 @@ export const syncCartProducts = /* GraphQL */ `
         id
         userSub
         quantity
+        price
         productID
         _version
         _deleted

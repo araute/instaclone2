@@ -13,7 +13,7 @@ function MenuItem({locationProduct}) {
     <Pressable
       style={styles.Row}
       onPress={() =>
-        navigation.navigate('ProductDetailScreen', {id: product?.id})
+        navigation.navigate('ProductDetailScreen', {id: product?.id, price})
       }>
       <View>
         <Text style={styles.Title}>{product?.name}</Text>

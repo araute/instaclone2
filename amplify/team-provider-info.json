@@ -37,7 +37,7 @@
       "function": {
         "onUserSignUp": {
           "deploymentBucketName": "amplify-instagramclone-pandora-81518-deployment",
-          "s3Key": "amplify-builds/onUserSignUp-335030616944354e6465-build.zip"
+          "s3Key": "amplify-builds/onUserSignUp-4f74665858344754336e-build.zip"
         }
       }
     }

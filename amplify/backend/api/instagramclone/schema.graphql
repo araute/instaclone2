@@ -53,6 +53,7 @@ type CartProduct @model @auth(rules: [{allow: public}]) {
     id: ID!
     userSub: String!
     quantity: Int!
+    price: Float
     productID: ID!
     product: Product @connection(name :"CartProduct", fields: ["productID"])
 }
@@ -64,7 +65,7 @@ type OrderProduct @model @auth(rules: [{allow: public}]) {
     productID: ID!
     product: Product @connection(fields: ["productID"])
     orderID: ID!
-    order: Order @connection(fields: ["orderID"])
+    order: Order @connection( fields: ["orderID"])
 }
 
 type Order @model @auth(rules: [{allow: public}]) {
