@@ -51,9 +51,8 @@ function AddressScreen(props) {
     obj.sort(function (x, y) {
       return y - x;
     });
-    // let selectedAdd = updatedArray.find((x) => x.id === selectedId);
-    // updatedArray = updatedArray.filter((item) => item.isSelected === false);
-    // const sortedArray = updatedArray.unshift(selectedAdd);
+    console.log(obj);
+    console.log(currentUser);
     setUserAddress(obj);
     setSelectedId(selectedId);
     try {
