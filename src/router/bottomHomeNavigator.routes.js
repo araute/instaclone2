@@ -12,6 +12,8 @@ import CreatePostScreen from '../screens/CreatePostScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import AddressStack from './address.routes';
+import MenuScreen from '../screens/MenuScreen';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const Tab = createBottomTabNavigator();
 
@@ -50,6 +52,13 @@ const BottomHomeNavigator = () => (
     <Tab.Screen name="Notifications" component={NotificationsScreen} />
     <Tab.Screen name="Profile" component={ProfileScreen} />
     <Tab.Screen name="Address" component={AddressStack} />
+    <Tab.Screen
+      component={MenuScreen}
+      name="Menu"
+      options={{
+        tabBarIcon: ({color}) => <Entypo name="menu" color={color} size={25} />,
+      }}
+    />
   </Tab.Navigator>
 );
 
