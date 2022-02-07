@@ -6,6 +6,7 @@ import {Auth, DataStore} from 'aws-amplify';
 import {CartProduct, Product} from '../../../models';
 import CartProductItem from '../../components/CartProductItem';
 import Button from '../../components/Button';
+import AnimateNumber from 'react-native-animate-number';
 
 // import products from '../../data/cart';
 
@@ -111,9 +112,13 @@ const ShoopingCartScreen = () => {
           <View>
             <Text style={{fontSize: 18}}>
               Subtotal ({cartProducts.length} items):{' '}
-              <Text style={{color: '#e47911', fontWeight: 'bold'}}>
-                ${totalPrice.toFixed(2)}
-              </Text>
+              <AnimateNumber
+                value={totalPrice.toFixed(2)}
+                formatter={(val) => {
+                  return '$ ' + parseFloat(val).toFixed(2);
+                }}
+                style={{color: '#e47911', fontWeight: 'bold'}}
+              />
             </Text>
             <Button
               text="Proceed to checkout"
