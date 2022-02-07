@@ -103,26 +103,28 @@ const CheckoutAddressScreen = () => {
 
     // attach all cart items to the order
     await Promise.all(
-      cartItems.map((cartItem) =>
+      cartItems.map((cartItem) => {
+        console.log(cartItem);
         DataStore.save(
           new OrderProduct({
             quantity: cartItem.quantity,
-            option: cartItem.option,
-            productID: cartItem.productID,
-            orderID: newOrder.id,
+            option: 'Spicy',
+            product: cartItem.product,
+            order: newOrder,
           }),
-        ),
-      ),
+        );
+      }),
     );
 
     // delete all cart items
     await Promise.all(cartItems.map((cartItem) => DataStore.delete(cartItem)));
 
     // redirect home
-    navigation.navigate('home');
+    navigation.navigate('Home');
   };
 
   const onCheckout = () => {
+    console.log('Checkout clicked!!');
     if (addressError) {
       Alert.alert('Fix all field errors before submiting');
       return;

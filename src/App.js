@@ -12,12 +12,15 @@ import {NavigationContainer} from '@react-navigation/native';
 import {withAuthenticator} from 'aws-amplify-react-native';
 
 import Router from './router';
+import {StripeProvider} from '@stripe/stripe-react-native/src/components/StripeProvider';
 
 const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
-      <Router />
+      <StripeProvider publishableKey="pk_test_TzbzbwLDiTeaUIUrBaGAXTkJ">
+        <Router />
+      </StripeProvider>
     </NavigationContainer>
   );
 };

@@ -38,6 +38,7 @@ const Feed = () => {
   const fetchLocations = async () => {
     try {
       const postsData = await DataStore.query(Location);
+      console.log(postsData);
       setLocations(postsData);
     } catch (e) {
       console.log(e.message);
@@ -277,6 +278,15 @@ const Feed = () => {
       </View>
       <View>
         <Button title="Create Sample Cart" onPress={onAddToCart} />
+      </View>
+      <View>
+        <Button title="Log Out" onPress={logOut} />
+      </View>
+      <View>
+        <Button title="Clear Data Store" onPress={clearDataStore} />
+      </View>
+      <View>
+        <Button title="Add USer" onPress={addUser} />
       </View>
       <View>
         <Cart />
